@@ -6,11 +6,11 @@ import { PrincessCard } from "./princess-card";
 import { Share } from "./share";
 import { Button } from "./ui/button";
 
-type Answer = {
+export type Answer = {
   princess: string;
 };
 
-type Question = {
+export type Question = {
   text: string;
   options: { label: string; answer: Answer }[];
 };
