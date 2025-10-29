@@ -1,10 +1,20 @@
 import { description, title, url } from "@/lib/metadata";
 import { Metadata } from "next";
+import { Header } from "@/components/header";
+import { Quiz } from "@/components/quiz";
 
 export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url,
+      images: [`${url}/icon.png`],
+    },
     other: {
       "fc:miniapp": JSON.stringify({
         version: "next",
@@ -33,9 +43,9 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function Home() {
   return (
-    <main className="flex flex-col gap-3 place-items-center px-4">
-      <span className="text-2xl">{title}</span>
-      <span className="text-muted-foreground">{description}</span>
+    <main className="flex flex-col gap-3 place-items-center px-4 min-h-screen bg-gradient-to-b from-indigo-100 to-purple-200">
+      <Header />
+      <Quiz />
     </main>
   );
 }
